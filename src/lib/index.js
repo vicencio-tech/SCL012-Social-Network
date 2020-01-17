@@ -1,3 +1,4 @@
+
 export function register(email,password){ //PARA CREAR CUENTA
   // si esta promesa no funciona, se ejecutará el catch, el cual captura el error y lo alerta
   firebase.auth().createUserWithEmailAndPassword(email,password)  
@@ -54,3 +55,4 @@ export function signOff(){
   .catch(function(error){
   })
 }
+

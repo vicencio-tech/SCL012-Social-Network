@@ -1,3 +1,4 @@
+
 import {register} from './lib/index.js';
 import {passIn} from './lib/index.js';
 import {observer} from './lib/index.js';
