@@ -5,8 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+
+<script>
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyASw2EHTfp3YOd38XfCtOAT0ORxeXVCWJ4",
+    authDomain: "red-social-c9212.firebaseapp.com",
+    databaseURL: "https://red-social-c9212.firebaseio.com",
+    projectId: "red-social-c9212",
+    storageBucket: "red-social-c9212.appspot.com",
+    messagingSenderId: "238297962501",
+    appId: "1:238297962501:web:f70fa7c61d6bb01c51e46c",
+    measurementId: "G-F094J9Y6YG"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+    <h4>REGÍSTRATE</h4> 
+    <input type='email' id='email' placeholder='Ingresa email'>
+    <input type='password' id='password' placeholder='Ingresa contraseña'>
+    <button id='send'>Enviar</button>
+
+    <h4>INGRESA A TU CUENTA</h4> 
+    <input type='email' id='email2' placeholder='Ingresa email'>
+    <input type='password' id='password2' placeholder='Ingresa contraseña'>
+    <button id='access'>Ingresar</button>
+
+    <div id='principalContent'></div>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>
+
+
