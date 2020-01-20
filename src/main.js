@@ -25,7 +25,7 @@ let registro= document.getElementById("registro").addEventListener("click", ()=>
   <button id='send'>Enviar</button>
   </form>
   `
-
+});
 document.getElementById('send').addEventListener('click',function(){
     let email=document.getElementById('email').value;
     let password=document.getElementById('password').value;
@@ -44,4 +44,4 @@ showUp();
 
 document.getElementById('logout').addEventListener('click',function(){
     signOff();
-});
+})
