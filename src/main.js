@@ -16,8 +16,8 @@ import {showUp} from './lib/index.js';
 
 
 let registro= document.getElementById("registro").addEventListener("click", ()=>{
-  let form1= document.createElement("form")`
-  <form>
+  `
+  <form class= 'formulario'>
   <input type='name' id='name' placeholder='Ingresa tu Nombre'>
   <input type='lastName' id='lastName' placeholder='Ingresa tu Apellido'>
   <input type='email' id='email' placeholder='Ingresa email'>
