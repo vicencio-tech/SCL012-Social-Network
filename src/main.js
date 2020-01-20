@@ -5,6 +5,7 @@ import {observer} from './lib/index.js';
 import {signOff} from './lib/index.js';
 import {showUp} from './lib/index.js';
 
+
   let script = document.createElement("script");
   script.addEventListener("load", function(event) {
     console.log("Script terminó de cargarse y ejecutarse");
@@ -42,6 +43,8 @@ observer();
 
 showUp();
 
-document.getElementById('logout').addEventListener('click',function(){
+
+document.getElementById('btnlogout').addEventListener('click',function(){
     signOff();
-})
+});
+
