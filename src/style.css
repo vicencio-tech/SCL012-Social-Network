@@ -1,0 +1,257 @@
+*{
+    list-style: none;
+   
+    margin:0px;
+    padding: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+}
+.logo{
+  
+    margin-left:100px;
+    margin-bottom: 0px;
+  
+}
+.time-service{
+    width:auto;
+  
+    justify-content:center;
+  
+}
+.btns{
+    margin-left:100px;
+    width: 50%;
+    height: 55px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    font-family: 'Shadows Into Light Two', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #F2F2F2;
+    cursor: pointer;
+    background: #FF8000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+.btns:hover{
+    color:white;
+    background-color:black ;
+}
+.text{
+    
+    font-family: 'Sarala', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    color: #828282;
+
+}
+.menu{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 80px;
+    align-items: flex-end;
+    padding-right: 50px;
+}
+.menuNav{
+    display: flex;
+    flex-direction: row;
+    align-content: space-around 
+}
+.enlaces{
+    margin: 6px 11px;  
+}
+.link{
+    color: darkkhaki;
+    font-size: 15px;
+    font-family:'Tauri', sans-serif;
+}
+#link:hover{
+    color:black;
+    background: linear-gradient(180deg, rgba(180, 146, 59, 0.77) 0%, rgba(180, 146, 59, 0) 100%);
+}
+.imagen {
+   
+    height: 80%;
+    background-position-x: right;
+    background-repeat: no-repeat;
+}
+.sortBy {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    font-size: 24px;
+    float: right;
+    height: 42px;
+    margin-right: 63px;
+    margin-left: 65px;
+    font-family: 'Tauri', sans-serif;
+    margin-top: 25px;
+}
+.filterChamp{ /* contenedor campeones */
+    display: flex;
+	flex-wrap: wrap;
+    justify-content: center;
+}
+.elementos{
+    display: inline-grid;
+    height: 370px;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid #937341;
+    border-radius: 10px;
+    color: whitesmoke;
+    background:rgb(147, 115, 65);
+    width: 250px;
+    padding-top: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+.img{
+	height: 185px;
+    width: 230px;
+    transition: transform .5s ease;
+    padding: 0px;
+    border-radius: 10px;
+}
+.img:hover{
+    transform: scale(1.1);
+}
+.containerSearch {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+}
+
+body{
+    background-color: #f7f7f7;
+}
+.ul{
+    flex-direction: row;
+    display: flex;
+    justify-content: center; 
+    background: linear-gradient(180deg, rgba(180, 146, 59, 0.77) 0%, rgba(180, 146, 59, 0) 100%); 
+}
+.barra-busqueda{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+    height: 42px;
+    margin-left: 90px;
+}
+
+.titulo{
+    font-family: 'Syncopate', sans-serif;
+    font-size: 35px;
+    display: flex;
+    color: black;
+    text-shadow: 0px 4px 6px #B4923B;
+    margin-left: 94px;
+}
+.hidden{
+visibility: hidden;
+}
+footer{
+    font-family:'Tauri', sans-serif;
+    font-size: 15px;
+    height: 50px;
+    padding-top: 10px;
+    justify-items: center;
+    text-align: center;
+
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: auto;
+    width: 50%;
+    height: 40%; /* Could be more or less, depending on screen size */
+  }
+  .imgModal{
+    width: 100%;
+  }
+
+  #modal-blurb,#modal-name,#modal-magic,#modal-defense,#modal-difficulty,#modal-attack,#modal-title{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 20px;
+      color:white;
+      background-color: #B4923B;
+     text-align: center;
+  }
+
+  /*  Extra small devices (phones, 600px and down) */ 
+ /* @media (min-width: 320px) and (max-width: 767px) {
+      .ul { 
+      flex-direction: column;
+      flex: none;
+      padding-right: 0%;}
+      .enlaces{font-variant: all-petite-caps;}
+      .imagen { background-size: contain;}
+      element.style { align-content: baseline;}
+     .texto {
+      font-size: 10px;
+      font: small-caption;
+      font-variant: all-petite-caps;
+      width: 150px;
+      margin-left: 20px;
+      transform: scale(1.1);}
+      .titulo {
+      font-size: 12px;
+      margin-left: 15px;
+      margin-bottom: 20px;}
+      .logo{
+      width: 50%;
+      margin-bottom: 0px;
+      margin-top: 0%;} 
+      .barra-busqueda{
+      border-bottom:none; 
+      height: 23px;
+      margin-left: 0px;}
+      .sortBy{font-size: 12px;}
+      .containerSearch{height: 60px;}
+      .botones{
+      height: 38px;
+      font-size: 18px;}
+  
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .texto{
+        padding-bottom: 280px;
+        width: 250px;
+        margin-left: 38px;
+    }
+    .titulo{
+        font-size: 20px;
+        margin-left: 38px;
+    }
+
+  }*/

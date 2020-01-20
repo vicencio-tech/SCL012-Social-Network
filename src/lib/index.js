@@ -1,14 +1,14 @@
+  export function register(email,password){ //PARA CREAR CUENTA
+    // si esta promesa no funciona, se ejecutará el catch, el cual captura el error y lo alerta
+    firebase.auth().createUserWithEmailAndPassword(email,password)  
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+  }
 
-export function register(email,password){ //PARA CREAR CUENTA
-  // si esta promesa no funciona, se ejecutará el catch, el cual captura el error y lo alerta
-  firebase.auth().createUserWithEmailAndPassword(email,password)  
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
-}
 
 export function passIn(email2,password2){ //PARA INGRESAR
   firebase.auth().signInWithEmailAndPassword(email2, password2).catch(function(error) {

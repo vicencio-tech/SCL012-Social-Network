@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sarala&display=swap" rel="stylesheet">
+
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
@@ -29,19 +34,35 @@
   
 </script>
 </head>
-<body>
-    <h4>REGÍSTRATE</h4> 
-    <input type='email' id='email' placeholder='Ingresa email'>
-    <input type='password' id='password' placeholder='Ingresa contraseña'>
-    <button id='send'>Enviar</button>
-
-    <h4>INGRESA A TU CUENTA</h4> 
+<body id="root">
+  <header>
+    <div class="time-service">
+      <img src="time-service1.jpg" style= "width: 100%; opacity: 70%;">
+    </div>
+    <div class="logo">
+      <img src="logo-weservice.png" alt="">
+    </div>
+    <h1 class='text'>¿Andas buscando un servicio?</h1>
+  </header>
+  <div id='principalContent'>
+    <button type="submit" id= "registro" class="btns">Registrate</button>
+    <button type="submit" class="btns">Ya tengo una cuenta</button>
     <input type='email' id='email2' placeholder='Ingresa email'>
     <input type='password' id='password2' placeholder='Ingresa contraseña'>
     <button id='access'>Ingresar</button>
+  </div>
+  <div id="root">
 
-    <div id='principalContent'></div>
 
+  </div>
+
+    <footer>
+      <div>
+
+      </div>
+    </footer>
+
+    <script type="module" src="style.css"></script>
     <script type="module" src="main.js"></script>
 </body>
 </html>
