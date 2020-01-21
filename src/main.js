@@ -1,9 +1,10 @@
-import {register} from './lib/index.js';
+
+/*import {register} from './lib/index.js';
 import {passIn} from './lib/index.js';
 import {observer} from './lib/index.js';
 import {signOff} from './lib/index.js';
 import {showUp} from './lib/index.js';
-
+*/
 let logo = document.getElementById("logo");
 logo.addEventListener("click",()=>{
   console.log("sirve");
