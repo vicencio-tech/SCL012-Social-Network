@@ -1,4 +1,4 @@
-  export function register(email,password){ //PARA CREAR CUENTA
+ /* export function register(email,password){ //PARA CREAR CUENTA
     // si esta promesa no funciona, se ejecutará el catch, el cual captura el error y lo alerta
     firebase.auth().createUserWithEmailAndPassword(email,password)  
     .catch(function(error) {
@@ -7,7 +7,7 @@
       var errorMessage = error.message;
       // ...
     });
-  }
+  };
 
 
 export function passIn(email2,password2){ //PARA INGRESAR
@@ -40,19 +40,14 @@ export function observer(){ // si existe un usuario ya registrado ejecutara un i
 }
 
 function showUp(){ 
-  let divContentPrivate=  ` 
-                <button id='logout'>Cerrar sesión</button>
-  `;
-    let content= document.getElementById('principalContent');
-    content.innerHTML= divContentPrivate; 
-};
-
+  document.getElementById('btnlogout').style.display = 'block';
+}
 export function signOff(){ 
-  firebase.auth().signOff()
+  firebase.auth().signOut()
   .then(function(){
-    console.log('saliendoooo')
+    document.getElementById('btnlogout').style.display = 'none';
   })
   .catch(function(error){
   })
 }
-
+*/

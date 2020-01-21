@@ -1,31 +1,52 @@
-
 import {register} from './lib/index.js';
 import {passIn} from './lib/index.js';
 import {observer} from './lib/index.js';
 import {signOff} from './lib/index.js';
 import {showUp} from './lib/index.js';
 
-  let script = document.createElement("script");
-  script.addEventListener("load", function(event) {
-    console.log("Script terminó de cargarse y ejecutarse");
-  });
-  script.src = "http://example.com/example.js";
-  script.async = true;
-  document.getElementsByTagName("script")[0].parentNode.appendChild(script);
+let logo = document.getElementById("logo");
+logo.addEventListener("click",()=>{
+  console.log("sirve");
+   document.createElement("body",)
+});
 
+ /*  // ejecuta esta función cuando se cargue el documento
+   window.onload = function() {
+     console.log( "sirve");
 
+    // crea dinámicamente un par de elementos HTML en una página vacia
+    var heading = document.createElement("h1");
+    var heading_text = document.createTextNode("el texto que desee");
+    heading.appendChild(heading_text);
+    document.body.appendChild(heading);
+    
+  };
+   let registro= document.getElementById("registro");
+   registro.addEventListener("click", ()=>{
+     console.log("sirve");
+     let next=document.getElementById("root");
+     next.innerHTML=
+    `
+    <form class= 'formulario'>
+    <input type='name' id='name' placeholder='Ingresa tu Nombre'>
+    <input type='lastName' id='lastName' placeholder='Ingresa tu Apellido'>
+    <input type='email' id='email' placeholder='Ingresa email'>
+    <input type='password' id='password' placeholder='Ingresa contraseña'>
+    <button id='send'>Enviar</button>
+    </form>
+    
+    <input type='email' id='email' placeholder='Ingresa email'>
+    <input type='password' id='password' placeholder='Ingresa contraseña'>
+    <button id='send'>registrate</button>
+    <input type='email' id='email2' placeholder='Ingresa email'>
+    <input type='password' id='password2' placeholder='Ingresa contraseña'>
+    <button id='access'>Ingresar</button>
+    <button id='btnlogout' style='display:none;'>Cerrar Sesion</button>
 
-let registro= document.getElementById("registro").addEventListener("click", ()=>{
-  let form1= document.createElement("form")`
-  <form>
-  <input type='name' id='name' placeholder='Ingresa tu Nombre'>
-  <input type='lastName' id='lastName' placeholder='Ingresa tu Apellido'>
-  <input type='email' id='email' placeholder='Ingresa email'>
-  <input type='password' id='password' placeholder='Ingresa contraseña'>
-  <button id='send'>Enviar</button>
-  </form>
-  `
+    
+    `
 
+});
 document.getElementById('send').addEventListener('click',function(){
     let email=document.getElementById('email').value;
     let password=document.getElementById('password').value;
@@ -42,6 +63,8 @@ observer();
 
 showUp();
 
-document.getElementById('logout').addEventListener('click',function(){
+
+document.getElementById('btnlogout').addEventListener('click',function(){
     signOff();
 });
+*/

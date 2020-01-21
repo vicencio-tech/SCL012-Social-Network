@@ -1,24 +1,16 @@
-*{
-    list-style: none;
-   
-    margin:0px;
+*{  margin:0px;
     padding: 0px;
     text-decoration: none;
     box-sizing: border-box;
     
 }
 .logo{
-  
+    cursor: pointer;
     margin-left:100px;
     margin-bottom: 0px;
-  
+    resize: unset;
 }
-.time-service{
-    width:auto;
-  
-    justify-content:center;
-  
-}
+
 .btns{
     margin-left:100px;
     width: 50%;
@@ -40,6 +32,7 @@
     border-radius: 15px;
 }
 .btns:hover{
+    cursor: pointer;
     color:white;
     background-color:black ;
 }
