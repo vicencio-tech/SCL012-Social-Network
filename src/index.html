@@ -4,20 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  
+  <title>WeService</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Sarala&display=swap" rel="stylesheet">
+</head>
+<body> 
+<div id="root">
+  <header>
+    <div class="time-service">
+      <img src="time-service1.jpg" style= "width: 100%; opacity: 70%;">
+    </div>
+    <div class="logo">
+      <img id ="logo" src="logo-weservice.png" style="cursor: pointer;" alt="">
+    </div>
+    <h1 class='text'>¿Andas buscando un servicio?</h1>
+  </header>
+  <div id='principalContent'>
+    <button type="submit" id= "registro" class="btns">Registrate</button>
+    <button type="submit" class="btns">Ya tengo una cuenta</button>
+  </div>
+</div>
 
+    <footer>
+    <div>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
+    </div>
+    </footer>
+
+   
+    <script type="module/javascript" src="main.js"></script>
+  
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
-
 <script>
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyASw2EHTfp3YOd38XfCtOAT0ORxeXVCWJ4",
@@ -31,42 +52,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  
 </script>
-</head>
-<body id="root">
-  <header>
-    <div class="time-service">
-      <img src="time-service1.jpg" style= "width: 100%; opacity: 70%;">
-    </div>
-    <div class="logo">
-      <img src="logo-weservice.png" alt="">
-    </div>
-    <h1 class='text'>¿Andas buscando un servicio?</h1>
-  </header>
-  <div id='principalContent'>
-    <button type="submit" id= "registro" class="btns">Registrate</button>
-    <button type="submit" class="btns">Ya tengo una cuenta</button>
-    <input type='email' id='email2' placeholder='Ingresa email'>
-    <input type='password' id='password2' placeholder='Ingresa contraseña'>
-    <button id='access'>Ingresar</button>
-    <button id='btnlogout' style='display:none;'>Cerrar Sesion</button>
-
-  </div>
-  <div id="root">
-
-
-
-  </div>
-
-    <footer>
-      <div>
-
-      </div>
-    </footer>
-
-    <script type="module" src="style.css"></script>
-    <script type="module" src="main.js"></script>
 </body>
 </html>
 

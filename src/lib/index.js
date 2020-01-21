@@ -1,4 +1,4 @@
-  export function register(email,password){ //PARA CREAR CUENTA
+ /* export function register(email,password){ //PARA CREAR CUENTA
     // si esta promesa no funciona, se ejecutará el catch, el cual captura el error y lo alerta
     firebase.auth().createUserWithEmailAndPassword(email,password)  
     .catch(function(error) {
@@ -7,7 +7,7 @@
       var errorMessage = error.message;
       // ...
     });
-  }
+  };
 
 
 export function passIn(email2,password2){ //PARA INGRESAR
@@ -50,3 +50,4 @@ export function signOff(){
   .catch(function(error){
   })
 }
+*/
