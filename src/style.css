@@ -57,14 +57,70 @@
     align-items: flex-end;
     padding-right: 50px;
 }
-.menuNav{
-    display: flex;
+.nav{
     flex-direction: row;
-    align-content: space-around 
+    justify-content: center; 
+    background:  #FF8000;
+    align-content: space-around ;
 }
-.enlaces{
-    margin: 6px 11px;  
+.barra{
+    margin-left: 20%;
+    margin-right: 20%;
+    display: flex;
+    justify-content: center;
 }
+
+.search{
+    width: 100%;
+    height: 34px;
+    background: #FF8000;
+    border-radius: 20px;
+    border: none;
+    text-align: end;
+    color: white;
+    
+}
+::placeholder{
+    color:white;
+}
+main{
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    min-height: 60vh;
+    flex-wrap: wrap;
+   
+    
+}
+#ingreso-post{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#lista-publicaciones{
+    background-attachment: scroll;
+}
+
+.opciones-footer{
+  width: 30%;
+  flex-wrap: wrap;
+}
+.footer-color{
+    align-self: flex-end;
+    background-color: #FF8000;
+    line-height: 3;
+    text-align: center;
+  
+
+}
+.img-header{
+   width: 60px;
+   padding: 15px;
+   
+}
+#cerrar-sesion{
+    float: right;
+}
+
 .link{
     color: darkkhaki;
     font-size: 15px;
@@ -127,45 +183,15 @@
     height: 90px;
 }
 
-body{
-    background-color: #f7f7f7;
-}
-.ul{
-    flex-direction: row;
-    display: flex;
-    justify-content: center; 
-    background: linear-gradient(180deg, rgba(180, 146, 59, 0.77) 0%, rgba(180, 146, 59, 0) 100%); 
-}
-.barra-busqueda{
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 2px solid black;
-    font-size: 20px;
-    height: 42px;
-    margin-left: 90px;
-}
 
-.titulo{
-    font-family: 'Syncopate', sans-serif;
-    font-size: 35px;
-    display: flex;
-    color: black;
-    text-shadow: 0px 4px 6px #B4923B;
-    margin-left: 94px;
-}
+
+
 .hidden{
 visibility: hidden;
 }
-footer{
-    font-family:'Tauri', sans-serif;
-    font-size: 15px;
-    height: 50px;
-    padding-top: 10px;
-    justify-items: center;
-    text-align: center;
 
-}
+
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

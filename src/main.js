@@ -6,66 +6,86 @@ import {signOff} from './lib/index.js';
 import {showUp} from './lib/index.js';
 */
 let logo = document.getElementById("logo");
-logo.addEventListener("click",()=>{
+logo.addEventListener("click", () => {
   console.log("sirve");
-   document.createElement("body",)
-});
+  let next = document.getElementById("root");
+  next.innerHTML = `
+<header class="header-position">
+  <div class="marca-header">
+    <div class="encabezado" style="margin-left:35%"><img src="logo-weservice.png" style="cursor: pointer; width:50%" alt="logo">
+    <a class="" id="cerrar-sesion" href=""><img class="img-header" src="close.png" alt="cerrar-sesión"></a>
+    </div>
+  </div>
 
- /*  // ejecuta esta función cuando se cargue el documento
-   window.onload = function() {
-     console.log( "sirve");
+  <div class="barra">
+    <input type="search" class="search" placeholder="Search...">
+  </div>
 
-    // crea dinámicamente un par de elementos HTML en una página vacia
-    var heading = document.createElement("h1");
-    var heading_text = document.createTextNode("el texto que desee");
-    heading.appendChild(heading_text);
-    document.body.appendChild(heading);
-    
-  };
-   let registro= document.getElementById("registro");
-   registro.addEventListener("click", ()=>{
-     console.log("sirve");
-     let next=document.getElementById("root");
-     next.innerHTML=
-    `
-    <form class= 'formulario'>
-    <input type='name' id='name' placeholder='Ingresa tu Nombre'>
-    <input type='lastName' id='lastName' placeholder='Ingresa tu Apellido'>
-    <input type='email' id='email' placeholder='Ingresa email'>
-    <input type='password' id='password' placeholder='Ingresa contraseña'>
-    <button id='send'>Enviar</button>
+</header>
+<main>
+  <div id="ingreso-post">
+    <form class="formulario-post">
+      <div class="imagen-post">
+        <div class="fondo-avatar">
+            <img class="imagen-tamaño" src="" alt="avatar">
+        </div>
+        <textarea  class="textarea" name="post" id="post" cols="30" rows="3" placeholder="¡Publica tus novedades!"></textarea>
+      </div>
+      <div class="imagen-post">
+          <button class="botones-post" id="publicar">Publicar</button>
+      </div>
     </form>
-    
-    <input type='email' id='email' placeholder='Ingresa email'>
-    <input type='password' id='password' placeholder='Ingresa contraseña'>
-    <button id='send'>registrate</button>
-    <input type='email' id='email2' placeholder='Ingresa email'>
-    <input type='password' id='password2' placeholder='Ingresa contraseña'>
-    <button id='access'>Ingresar</button>
-    <button id='btnlogout' style='display:none;'>Cerrar Sesion</button>
+  </div>
+    <section id="lista-publicaciones"></section>
+</main>
+<footer>
+  <footer class="footer-color">
+    <div class = "footer-opciones">
+      <a class="nav" href=""><img class="img-header"  src="like.png" alt="Publicaciones"></a>  
+      <a class="nav" href=""><img class="img-header"  src="chat-bubble.png" alt="Noticias"></a>  
+      <a class="nav" href=""><img class="img-header"  src="user.png" alt="Perfil"></a> 
+    </div>
+  </footer>
+</footer>
 
-    
+    `;
+    const div = document.createElement('div');
+    div.innerHTML = temp;
+    const btnLogOut = div.querySelector('#cerrar-sesion');
+    const btnPost = div.querySelector('#publicar');
+    const tagDiv = div.querySelector('#lista-publicaciones');
+    posts.forEach(post => {
+      tagDiv.appendChild(
+        cadaPost(post, firebase.auth().currentUser.uid));
+    });
+    btnPost.addEventListener('click', addPostOnSubmit);
+    btnLogOut.addEventListener('click', logOutOnClick);
+    return div;
+})
+
+
+
+let account = document.getElementById("access")
+account.addEventListener("click", () => {
+  console.log("si");
+  let next = document.getElementById("root");
+  next.innerHTML =
     `
-
+ <form class= 'formulario'>
+ <input type='name' id='name' placeholder='Ingresa tu Nombre'>
+ <input type='lastName' id='lastName' placeholder='Ingresa tu Apellido'>
+ <input type='email' id='email' placeholder='Ingresa email'>
+ <input type='password' id='password' placeholder='Ingresa contraseña'>
+ <button id='send'>Enviar</button>
+ </form>
+ 
+ <input type='email' id='email' placeholder='Ingresa email'>
+ <input type='password' id='password' placeholder='Ingresa contraseña'>
+ <button id='send'>registrate</button>
+ <input type='email' id='email2' placeholder='Ingresa email'>
+ <input type='password' id='password2' placeholder='Ingresa contraseña'>
+ <button id='access'>Ingresar</button>
+ <button id='btnlogout' style='display:none;'>Cerrar Sesion</button>
+ `
 });
-document.getElementById('send').addEventListener('click',function(){
-    let email=document.getElementById('email').value;
-    let password=document.getElementById('password').value;
-    register(email, password);
-});
 
-document.getElementById('access').addEventListener('click',function(){
-    let email2=document.getElementById('email2').value;
-    let password2=document.getElementById('password2').value;
-    passIn(email2, password2);
-});
-
-observer();
-
-showUp();
-
-
-document.getElementById('btnlogout').addEventListener('click',function(){
-    signOff();
-});
-*/
