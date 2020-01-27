@@ -12,8 +12,10 @@ logo.addEventListener("click", () => {
   next.innerHTML = `
 <header class="header-position">
   <div class="marca-header">
-    <div class="encabezado" style="margin-left:35%"><img src="logo-weservice.png" style="cursor: pointer; width:50%" alt="logo">
-    <a class="" id="cerrar-sesion" href=""><img class="img-header" src="close.png" alt="cerrar-sesión"></a>
+
+    <div class="encabezado" style="margin-left:35%"><img src="./img/logo-weservice.png" style="cursor: pointer; width:50%" alt="logo">
+    <a class="" id="cerrar-sesion" href=""><img class="img-header" src="./img/close.png" alt="cerrar-sesión"></a>
+
     </div>
   </div>
 
@@ -23,27 +25,34 @@ logo.addEventListener("click", () => {
 
 </header>
 <main>
+
+<br>
+
   <div id="ingreso-post">
     <form class="formulario-post">
       <div class="imagen-post">
         <div class="fondo-avatar">
-            <img class="imagen-tamaño" src="" alt="avatar">
+
+            <img class="imagen-tamaño" src="./img/user.png" alt="avatar">
         </div>
-        <textarea  class="textarea" name="post" id="post" cols="30" rows="3" placeholder="¡Publica tus novedades!"></textarea>
+        <textarea  class="textarea" name="post" id="post"placeholder="¡Publica tus novedades!"></textarea>
       </div>
       <div class="imagen-post">
           <button class="botones-post" id="publicar">Publicar</button>
+          <section class="lista-publicaciones"></section>
       </div>
     </form>
   </div>
-    <section id="lista-publicaciones"></section>
+<br>
+
 </main>
 <footer>
   <footer class="footer-color">
     <div class = "footer-opciones">
-      <a class="nav" href=""><img class="img-header"  src="like.png" alt="Publicaciones"></a>  
-      <a class="nav" href=""><img class="img-header"  src="chat-bubble.png" alt="Noticias"></a>  
-      <a class="nav" href=""><img class="img-header"  src="user.png" alt="Perfil"></a> 
+
+      <a class="nav" href=""><img class="img-header"  src="./img/like.png" alt="Publicaciones"></a>  
+      <a class="nav" href=""><img class="img-header"  src="./img/chat-bubble.png" alt="Noticias"></a>  
+      <a class="nav" href=""><img class="img-header"  src="./img/user.png" alt="Perfil"></a> 
     </div>
   </footer>
 </footer>
