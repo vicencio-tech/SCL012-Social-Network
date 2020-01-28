@@ -122,15 +122,12 @@ btnSignIn.addEventListener ('click', () => {
   landing.innerHTML = '';
   loadAccessUser();
 });
-
-
 };
 
 loadLanding();
 
 
 //PAGINA PARA CREAR CUENTA
-
 
 const loadRegisterUser = ()=> {
   window.location.hash = '/registro';
@@ -149,8 +146,6 @@ const loadRegisterUser = ()=> {
       <button class='redes' id='btnLoginGoogle'> <img class='red-img' src="google.png" >ingresa con Google</button>
       <button class='redes' id='btnLoginFacebook'> <img class='red-img' src="ll.png" >ingresa con Facebook</button>   
       </form>`;
-
-
 
 const btnSignUpUser=registerUser.querySelector('#btnSignUpUser');
 btnSignUpUser.addEventListener ('click', () => {
@@ -219,10 +214,7 @@ const loginFacebook = () => {
   });
 }
 
-
-
 // PAGINA PARA INICIAR SESION
-
 
 const loadAccessUser = ()=> {
   window.location.hash = '/ingreso';
@@ -241,8 +233,6 @@ const loadAccessUser = ()=> {
    </div>
   <div >
   <button class='btnes' id='btnSignInUser'>Ingresar</button>`;
-  
-
 
 const btnSignInUser = accessUser.querySelector('#btnSignInUser');
 
@@ -290,7 +280,6 @@ export function observer(){ 
         //alert('inicia sesion');
         //wallPublications.innerHTML = '';
         loadLanding();
-
         // User is signed out.
       }
     });
@@ -299,7 +288,6 @@ export function observer(){ 
 observer();
 
 //PAGINA DEL MURO
-
 
 const loadWallPublications = ()=> {
   const wallPublications = document.getElementById ('root');
@@ -360,10 +348,6 @@ const btnCloseSession = wallPublications.querySelector('#btnCloseSession');
 btnCloseSession.addEventListener ('click', () => {
   closeSession();
 });
-
-
- 
-
 };
 
 // MANEJANDO LAS RUTAS
@@ -379,8 +363,5 @@ window.addEventListener('hashchange', () => {
     loadWallPublications();
   }
 });
-  
-
-  
 
   window.addEventListener('load',  loadLanding ());
