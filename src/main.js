@@ -81,6 +81,7 @@ registerUser.innerHTML = `
     <input type='text' id='lastName' placeholder='Apellido'>
     <input type='text' id='email' placeholder='Email'>
     <input type='text' id='password' placeholder='Contraseña'>
+
 `;
 
 registerUser.appendChild(btnSignUpUser);
@@ -132,6 +133,7 @@ function observer(){ 
         console.log('Existe usuario activo');
         loadWallPublications();
         landing.innerHTML = '';
+        
         //loadRegisterUser.innerHTML = '';
         accessUser.innerHTML= '';
         

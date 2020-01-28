@@ -1,6 +1,6 @@
 let database = firebase.firestore();
  
- export function register(name, lastName, email, password){ //PARA REGISTRAR
+export function register(name, lastName, email, password){ //PARA REGISTRAR
     firebase.auth().createUserWithEmailAndPassword(email,password)  
     .then(function(){
       saveCollectionUser(name, lastName, email, password);
@@ -60,12 +60,20 @@ const emailVerification = () => {
 }
 
 export function closeSession() {
+  let respuesta;
   firebase.auth().signOut()  
     .then(() => {
       console.log('Saliendo...');
+      respuesta = 'sesion cerrada';
     })
     .catch((error) => {
       console.log(error);
     });
   };
 
+const functions = {
+  closeSession,
+  emailVerification,
+}
+
+module.exports = functions;
