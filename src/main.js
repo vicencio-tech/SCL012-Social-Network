@@ -28,7 +28,102 @@ btnSignUp.addEventListener ('click', () => {
   loadRegisterUser();
 });
 
+const btnSignIn = document.createElement('button');
+btnSignIn.innerHTML = 'Ya tengo cuenta';
+btnSignIn.addEventListener ('click', () => {
+  landing.innerHTML = '';
+  loadAccessUser();
+});
 
+const btnLoginGoogle = document.createElement('button');
+btnLoginGoogle.innerHTML = 'Ingresa con Google';
+btnLoginGoogle.addEventListener ('click', () => {
+  loginGoogle();
+});
+
+const btnLoginFacebook = document.createElement('button');
+btnLoginFacebook.innerHTML = 'Ingresa con Facebook';
+btnLoginFacebook.addEventListener ('click', () => {
+  loginFacebook();
+});
+
+landing.innerHTML = `
+  <div class="time-service">
+      <img src="time-service1.jpg" style="width: 100%; opacity: 70%;">
+  </div>
+  <div class="logo">
+      <a id="logo" alt=""><img src="logo-weservice.png" style="cursor: pointer;"> </a>
+  </div>
+   <h1 class='text'>¿Andas buscando un servicio?</h1>
+  `;
+
+landing.appendChild(btnSignUp);
+landing.appendChild(btnSignIn);
+landing.appendChild(btnLoginGoogle);
+landing.appendChild(btnLoginFacebook);
+};
+
+loadLanding();
+
+
+//PAGINA PARA CREAR CUENTA
+
+const registerUser = document.getElementById ('registerUser');
+
+const loadRegisterUser = ()=> {
+window.location.hash = '/registro';
+
+const btnSignUpUser = document.createElement('button');
+btnSignUpUser.innerHTML = 'Enviar';
+btnSignUpUser.addEventListener ('click', () => {
+const name = document.getElementById('name').value
+const lastName = document.getElementById('lastName').value
+const email = document.getElementById('email').value
+const password = document.getElementById('password').value
+
+  register(name, lastName, email, password);
+});
+
+registerUser.innerHTML = `
+<div class="logo">
+      <a id="logo" alt=""><img src="logo-weservice.png" style="cursor: pointer;"> </a>
+</div>
+<form>
+    <h1>Registro</h1>
+    <input type='text' id='name' placeholder='Nombre'>
+    <input type='text' id='lastName' placeholder='Apellido'>
+    <input type='text' id='email' placeholder='Email'>
+    <input type='text' id='password' placeholder='Contraseña'>
+
+`;
+
+registerUser.appendChild(btnSignUpUser);
+}
+
+// MANEJANDO LAS RUTAS
+window.addEventListener('hashchange', () => {
+
+if(window.location.hash === '#/registro'){ 
+  loadRegisterUser();
+}
+
+});
+
+// PAGINA PARA INICIAR SESION
+
+const accessUser = document.getElementById ('accessUser');
+
+const loadAccessUser = ()=> {
+window.location.hash = '/ingreso';
+wallPublications.innerHTML = '';
+const btnSignInUser = document.createElement('button');
+btnSignInUser.innerHTML = 'Entrar';
+btnSignInUser.addEventListener ('click', () => {
+  const email2 = document.getElementById('email2').value
+  const password2 = document.getElementById('password2').value
+  
+  passIn(email2, password2);
+});
 
 btnSignIn.addEventListener ('click', () => {
   landing.innerHTML = '';
@@ -119,9 +214,18 @@ btnSignInUser.addEventListener ('click', () => {
   passIn(email2, password2);
 });
 
+accessUser.innerHTML = `
+<div class="logo">
+      <a id="logo" alt=""><img src="logo-weservice.png" style="cursor: pointer;"> </a>
+</div>
+<form>
+    <input type='text' id='email2' placeholder='Email'>
+    <input type='text' id='password2' placeholder='Contraseña'>
+`;
 
-
+accessUser.appendChild(btnSignInUser);
 }
+
 // OBSERVADOR PARA IDENTIFICAR SI EL USUARIO ESTA LOGUEADO
 
 export function observer(){ 
@@ -130,7 +234,6 @@ export function observer(){ 
         console.log('Existe usuario activo');
         loadWallPublications();
         landing.innerHTML = '';
-
         //loadRegisterUser.innerHTML = '';
         accessUser.innerHTML= '';
         
