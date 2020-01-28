@@ -28,13 +28,6 @@ btnSignUp.addEventListener ('click', () => {
   loadRegisterUser();
 });
 
-const btnSignIn = document.createElement('button');
-btnSignIn.innerHTML = 'Ya tengo cuenta';
-btnSignIn.addEventListener ('click', () => {
-  landing.innerHTML = '';
-  loadAccessUser();
-});
-
 const btnLoginGoogle = document.createElement('button');
 btnLoginGoogle.innerHTML = 'Ingresa con Google';
 btnLoginGoogle.addEventListener ('click', () => {
