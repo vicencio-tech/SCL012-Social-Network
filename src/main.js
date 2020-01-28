@@ -8,12 +8,12 @@ const landing = document.getElementById ('root');
 landing.innerHTML = `
 <header>
   <div class="time-service"
-      <img src='./img/time-service.jpg' id="time"  style="opacity: 70%;">
+      <img src='./img/time-service.jpg' id="time"  style="opacity: 70%;">
   </div>
 </header>
   <div class="logo">
     <a id="logo" alt=""><img src="./img/logo-weservice.png" style="cursor: pointer;"> </a>
-    <h1 class='text'>¿Andas buscando un servicio?</h1>
+    <h1 class='text'>¿Andas buscando un servicio?</h1>
     <br>
     <button class='btns' id='btnSignUp'>Regístrate</button>
     <button class='btns' id='btnSignIn'>ya tengo una cuenta</button>
@@ -28,106 +28,21 @@ btnSignUp.addEventListener ('click', () => {
   loadRegisterUser();
 });
 
-const btnLoginGoogle = document.createElement('button');
-btnLoginGoogle.innerHTML = 'Ingresa con Google';
-btnLoginGoogle.addEventListener ('click', () => {
-  loginGoogle();
-});
 
-const btnLoginFacebook = document.createElement('button');
-btnLoginFacebook.innerHTML = 'Ingresa con Facebook';
-btnLoginFacebook.addEventListener ('click', () => {
-  loginFacebook();
-});
-
-landing.innerHTML = `
-  <div class="time-service">
-      <img src="time-service1.jpg" style="width: 100%; opacity: 70%;">
-  </div>
-  <div class="logo">
-      <a id="logo" alt=""><img src="logo-weservice.png" style="cursor: pointer;"> </a>
-  </div>
-   <h1 class='text'>¿Andas buscando un servicio?</h1>
-  `;
-
-landing.appendChild(btnSignUp);
-landing.appendChild(btnSignIn);
-landing.appendChild(btnLoginGoogle);
-landing.appendChild(btnLoginFacebook);
-};
-
-loadLanding();
-
-
-//PAGINA PARA CREAR CUENTA
-
-const registerUser = document.getElementById ('registerUser');
-
-const loadRegisterUser = ()=> {
-window.location.hash = '/registro';
-
-const btnSignUpUser = document.createElement('button');
-btnSignUpUser.innerHTML = 'Enviar';
-btnSignUpUser.addEventListener ('click', () => {
-const name = document.getElementById('name').value
-const lastName = document.getElementById('lastName').value
-const email = document.getElementById('email').value
-const password = document.getElementById('password').value
-
-  register(name, lastName, email, password);
-});
-
-registerUser.innerHTML = `
-<div class="logo">
-      <a id="logo" alt=""><img src="logo-weservice.png" style="cursor: pointer;"> </a>
-</div>
-<form>
-    <h1>Registro</h1>
-    <input type='text' id='name' placeholder='Nombre'>
-    <input type='text' id='lastName' placeholder='Apellido'>
-    <input type='text' id='email' placeholder='Email'>
-    <input type='text' id='password' placeholder='Contraseña'>
-
-`;
-
-registerUser.appendChild(btnSignUpUser);
-}
-
-// MANEJANDO LAS RUTAS
-window.addEventListener('hashchange', () => {
-
-if(window.location.hash === '#/registro'){ 
-  loadRegisterUser();
-}
-
-});
-
-// PAGINA PARA INICIAR SESION
-
-const accessUser = document.getElementById ('accessUser');
-
-const loadAccessUser = ()=> {
-window.location.hash = '/ingreso';
-wallPublications.innerHTML = '';
-const btnSignInUser = document.createElement('button');
-btnSignInUser.innerHTML = 'Entrar';
-btnSignInUser.addEventListener ('click', () => {
-  const email2 = document.getElementById('email2').value
-  const password2 = document.getElementById('password2').value
-  
-  passIn(email2, password2);
-});
 
 btnSignIn.addEventListener ('click', () => {
   landing.innerHTML = '';
   loadAccessUser();
 });
+
+
 };
 
 loadLanding();
 
 
 //PAGINA PARA CREAR CUENTA
+
 
 const loadRegisterUser = ()=> {
   window.location.hash = '/registro';
@@ -146,6 +61,8 @@ const loadRegisterUser = ()=> {
       <button class='redes' id='btnLoginGoogle'> <img class='red-img' src="google.png" >ingresa con Google</button>
       <button class='redes' id='btnLoginFacebook'> <img class='red-img' src="ll.png" >ingresa con Facebook</button>   
       </form>`;
+
+
 
 const btnSignUpUser=registerUser.querySelector('#btnSignUpUser');
 btnSignUpUser.addEventListener ('click', () => {
@@ -214,7 +131,10 @@ const loginFacebook = () => {
   });
 }
 
+
+
 // PAGINA PARA INICIAR SESION
+
 
 const loadAccessUser = ()=> {
   window.location.hash = '/ingreso';
@@ -233,6 +153,8 @@ const loadAccessUser = ()=> {
    </div>
   <div >
   <button class='btnes' id='btnSignInUser'>Ingresar</button>`;
+  
+
 
 const btnSignInUser = accessUser.querySelector('#btnSignInUser');
 
@@ -243,51 +165,44 @@ btnSignInUser.addEventListener ('click', () => {
   passIn(email2, password2);
 });
 
-accessUser.innerHTML = `
-<div class="logo">
-      <a id="logo" alt=""><img src="logo-weservice.png" style="cursor: pointer;"> </a>
-</div>
-<form>
-    <input type='text' id='email2' placeholder='Email'>
-    <input type='text' id='password2' placeholder='Contraseña'>
-`;
 
-accessUser.appendChild(btnSignInUser);
+
 }
-
 // OBSERVADOR PARA IDENTIFICAR SI EL USUARIO ESTA LOGUEADO
 
-export function observer(){ 
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) { 
+export function observer(){ 
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) { 
         console.log('Existe usuario activo');
         loadWallPublications();
         landing.innerHTML = '';
         //loadRegisterUser.innerHTML = '';
         accessUser.innerHTML= '';
         
-        // User is signed in.
-        let displayName = user.displayName;
-        let email = user.email;
-        let emailVerified = user.emailVerified;
-        let photoURL = user.photoURL;
-        let isAnonymous = user.isAnonymous;
-        let uid = user.uid;
-        let providerData = user.providerData;
-        // ...
-      } else {
+        // User is signed in.
+        let displayName = user.displayName;
+        let email = user.email;
+        let emailVerified = user.emailVerified;
+        let photoURL = user.photoURL;
+        let isAnonymous = user.isAnonymous;
+        let uid = user.uid;
+        let providerData = user.providerData;
+        // ...
+      } else {
         console.log('No existe usuario activo');
-        //alert('inicia sesion');
+        //alert('inicia sesion');
         //wallPublications.innerHTML = '';
         loadLanding();
-        // User is signed out.
-      }
-    });
+
+        // User is signed out.
+      }
+    });
   }
 
 observer();
 
 //PAGINA DEL MURO
+
 
 const loadWallPublications = ()=> {
   const wallPublications = document.getElementById ('root');
@@ -295,27 +210,20 @@ const loadWallPublications = ()=> {
   wallPublications.innerHTML = `
 <header class="header-position">
   <div class="marca-header">
-
     <div class="encabezado" style="margin-left:35%"><img src="./img/logo-weservice.png" style="cursor: pointer; width:50%" alt="logo">
     <a class="" id="btnCloseSession" href=""><img class="img-header" src="./img/close.png" alt="cerrar-sesión"></a>
-
     </div>
   </div>
-
   <div class="barra">
     <input type="search" class="search" placeholder="Search...">
   </div>
-
 </header>
 <main>
-
 <br>
-
   <div id="ingreso-post">
     <form class="formulario-post">
       <div class="imagen-post">
         <div class="fondo-avatar">
-
             <img class="imagen-tamaño" src="./img/user.png" alt="avatar">
         </div>
         <textarea  class="textarea" name="post" id="post"placeholder="¡Publica tus novedades!"></textarea>
@@ -327,19 +235,16 @@ const loadWallPublications = ()=> {
     </form>
   </div>
 <br>
-
 </main>
 <footer>
   <footer class="footer-color">
     <div class = "footer-opciones">
-
       <a class="nav" href=""><img class="img-header"  src="./img/like.png" alt="Publicaciones"></a>  
       <a class="nav" href=""><img class="img-header"  src="./img/chat-bubble.png" alt="Noticias"></a>  
       <a class="nav" href=""><img class="img-header"  src="./img/user.png" alt="Perfil"></a> 
     </div>
   </footer>
 </footer>
-
     `;
 
 
@@ -348,6 +253,10 @@ const btnCloseSession = wallPublications.querySelector('#btnCloseSession');
 btnCloseSession.addEventListener ('click', () => {
   closeSession();
 });
+
+
+ 
+
 };
 
 // MANEJANDO LAS RUTAS
@@ -363,5 +272,8 @@ window.addEventListener('hashchange', () => {
     loadWallPublications();
   }
 });
+  
+
+  
 
   window.addEventListener('load',  loadLanding ());
