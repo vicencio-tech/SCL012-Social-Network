@@ -1,10 +1,10 @@
-import {register, passIn, closeSession, loginGoogle, loginFacebook } from './lib/index.js';
+import {register, passIn, closeSession} from './lib/index.js';
 
 //PAGINA DE INICIO
 
 const loadLanding = ()=> {
+  window.location.hash = '/inicio';
 const landing = document.getElementById ('root');
-window.location.hash = '/inicio';
 landing.innerHTML = `
 <header>
   <div class="time-service"
@@ -140,8 +140,8 @@ loadLanding();
 
 
 const loadRegisterUser = ()=> {
-  const registerUser = document.getElementById ('root');
   window.location.hash = '/registro';
+  const registerUser = document.getElementById ('root');
   registerUser.innerHTML =   `
     <div class="logo">
       <a href="#muro" id="logo" alt=""> <img src="logo-weservice.png" style="cursor: pointer;"> </a>
@@ -168,13 +168,11 @@ const password = document.getElementById('password').value
   register(name, lastName, email, password);
 });
 
-const btnLoginGoogle = registerUser.querySelector('btnLoginGoogle');
-
+const btnLoginGoogle = registerUser.querySelector('#btnLoginGoogle');
 btnLoginGoogle.addEventListener ('click', () => {
   loginGoogle();
 });
-
-const btnLoginFacebook =registerUser.querySelector('btnLoginFacebook');
+const btnLoginFacebook =registerUser.querySelector('#btnLoginFacebook');
 
 btnLoginFacebook.addEventListener ('click', () => {
   loginFacebook();
@@ -182,12 +180,60 @@ btnLoginFacebook.addEventListener ('click', () => {
 
 }
 
+ //LOGIN CON GOOGLE
+
+  const loginGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const token = result.credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    const credential = error.credential;
+    // ...
+  });
+}
+
+
+ //LOGIN CON FACEBOOK
+const loginFacebook = () => {
+  const provider = new firebase.auth.FacebookAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const token = result.credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    const credential = error.credential;
+    // ...
+  });
+}
+
+
+
 // PAGINA PARA INICIAR SESION
 
 
 const loadAccessUser = ()=> {
-  const accessUser = document.getElementById ('root');
   window.location.hash = '/ingreso';
+  const accessUser = document.getElementById ('root');
   accessUser.innerHTML =  `
   <div class="img-header">
     <img src="./img/time-service1.jpg" style="width: 100%; opacity: 70%;">
@@ -342,13 +388,6 @@ window.addEventListener('hashchange', () => {
 });
   
 
-const switchTemp = (hash) => {
-  if (hash === '/#inicio' || hash === '/#registro' || hash ==='#/ingreso' || hash === '/#muro') {
-    return hashshowTemp();
-  }
-  return showTemp('/#inicio');
-};
   
 
   window.addEventListener('load',  loadLanding ());
-  window.addEventListener('hashchange', () => switchTemp(window.location.hash));

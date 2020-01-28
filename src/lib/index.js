@@ -1,10 +1,6 @@
 let database = firebase.firestore();
  
-<<<<<<< HEAD
-export function register(name, lastName, email, password){ //PARA REGISTRAR
-=======
  export function register(name, lastName, email, password){ //PARA REGISTRAR
->>>>>>> 5d68bfaf741be69db1fc2b845a99551a096e6d3d
     firebase.auth().createUserWithEmailAndPassword(email,password)  
     .then(function(){
       saveCollectionUser(name, lastName, email, password);
@@ -110,29 +106,12 @@ export const loginFacebook = () => {
 
 
 export function closeSession() {
-<<<<<<< HEAD
-  let respuesta;
   firebase.auth().signOut()  
     .then(() => {
       console.log('Saliendo...');
-      respuesta = 'sesion cerrada';
-=======
-  firebase.auth().signOut()  
-    .then(() => {
-      console.log('Saliendo...');
->>>>>>> 5d68bfaf741be69db1fc2b845a99551a096e6d3d
     })
     .catch((error) => {
       console.log(error);
     });
   };
 
-<<<<<<< HEAD
-const functions = {
-  closeSession,
-  emailVerification,
-}
-
-module.exports = functions;
-=======
->>>>>>> 5d68bfaf741be69db1fc2b845a99551a096e6d3d
