@@ -1,9 +1,10 @@
 
 import {  loginGoogle, loginFacebook, } from '../lib/controllerAuth.js';
-import { register, passIn,  closeSession} from '../lib/view-controller.js';
+import { register, passIn, observer, closeSession} from '../lib/view-controller.js';
 import {sendingPost} from '../lib/initPost.js';
 //template inicio
 export const templateLanding = () => {
+  window.location.hash = '#/inicio';
 const containerLanding = document.getElementById ('root');
 const contentLanding = `
 
@@ -39,6 +40,7 @@ const contentLanding = `
 
 // template registro
 export const templateRegisterUser = () =>{
+  window.location.hash = '#/registro';
 const containerRegisterUser = document.getElementById ('root');
 const contentRegisterUser =`
     <div class="logo">
@@ -77,9 +79,10 @@ btnLoginFacebook.addEventListener ('click', () => {
 });
 return containerRegisterUser;
 }
-
+observer();
   //template acceso usuario
 export const templateAccessUser = () =>{
+  window.location.hash = '#/ingreso';
  const containerAccessUser =  document.getElementById ('root');
  const contenAccessUser =  `
   
@@ -113,6 +116,7 @@ return  containerAccessUser;
 //template muro
 
 export const  templateWallPublications = () => {
+  window.location.hash ='#/muro';
 const containerWallPublications = document.getElementById ('root');
 const contenWallPublications = `
 <div class="muro">

@@ -1,4 +1,4 @@
- import { templateWallPublications } from '../iu/vistas.js'
+ import { templateWallPublications,templateLanding  } from '../iu/vistas.js'
  const database = firebase.firestore();
 
   export function register(name, lastName, email, password){ //PARA REGISTRAR
@@ -9,22 +9,25 @@
     })
     .then(()=> {
       emailVerification();
+      alert('Su usuario ha sido creado correctamente,verifica en tu email');
+
     })
     .catch((error) => {
+      alert('Upps!! Su usuario no ha sido creado correctamente, por favor inténtalo nuevamente');
         let errorCode = error.code;
         let errorMessage = error.message;
-        alert(errorCode,errorMessage) ;  
+        console.log(errorCode,errorMessage) ;  
       });
   };
   
   export function passIn(email2,password2){ // PARA INGRESAR
  
       firebase.auth().signInWithEmailAndPassword(email2, password2).catch(function(error) {
- 
+        alert('Por favor inf=gresa tu correo y contraseña');
         let errorCode = error.code;
         let errorMessage = error.message;
   
-        alert(errorCode,errorMessage) ;  
+        console.log(errorCode,errorMessage) ;  
       });  
     }
     
@@ -49,7 +52,7 @@ export function observer(){ 
           console.log('No existe usuario activo');
           //alert('inicia sesion');
           //wallPublications.innerHTML = '';
-          loadLanding();
+          templateLanding();
   
           // User is signed out.
         }
