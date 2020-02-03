@@ -1,22 +1,24 @@
 import {register, passIn, closeSession} from './lib/index.js';
+const database = firebase.firestore();
+ 
 
 //PAGINA DE INICIO
 
-const loadLanding = ()=> {
+const loadLanding = () => {
   window.location.hash = '/inicio';
 const landing = document.getElementById ('root');
 landing.innerHTML = `
 <header>
   <div class="time-service"
-      <img src='./img/time-service.jpg' id="time"  style="opacity: 70%;">
+      <img src="./img/time-service.jpg" id="time"  style="opacity: 70%;">
   </div>
 </header>
   <div class="logo">
     <a id="logo" alt=""><img src="./img/logo-weservice.png" style="cursor: pointer;"> </a>
-    <h1 class='text'>¿Andas buscando un servicio?</h1>
+    <h1 class="text">¿Andas buscando un servicio?</h1>
     <br>
-    <button class='btns' id='btnSignUp'>Regístrate</button>
-    <button class='btns' id='btnSignIn'>ya tengo una cuenta</button>
+    <button class="btns" id="btnSignUp">Regístrate</button>
+    <button class="btns" id="btnSignIn">Ya tengo una cuenta</button>
   </div>
   `;
 const btnSignUp= landing.querySelector('#btnSignUp');
@@ -27,8 +29,6 @@ btnSignUp.addEventListener ('click', () => {
   landing.innerHTML = '';
   loadRegisterUser();
 });
-
-
 
 btnSignIn.addEventListener ('click', () => {
   landing.innerHTML = '';
@@ -49,17 +49,17 @@ const loadRegisterUser = ()=> {
   const registerUser = document.getElementById ('root');
   registerUser.innerHTML =   `
     <div class="logo">
-      <a href="#muro" id="logo" alt=""> <img src="logo-weservice.png" style="cursor: pointer;"> </a>
+      <a href="#muro" id="logo" alt=""> <img src="./img/logo-weservice.png" style="cursor: pointer;"> </a>
     </div>
-    <form class= 'formulario'>
-      <p class='leter-form'>Registro</p>
-      <p class='leter-form'>Nombre:<input type='name' class='forms'id='name' placeholder='Ingresa tu Nombre'></p>
-      <p class='leter-form'>Apellido:<input type='lastName' class='forms' id='lastName' placeholder='Ingresa tu Apellido'></p>
-      <p class='leter-form'>Email:<input type='email' id='email'class='forms' placeholder='Ingresa email'></p>
-      <p class='leter-form'>Contraseña:<input type='password'class='forms' id='password' placeholder='Ingresa contraseña'></p>
-      <button  class='btn-send' id='btnSignUpUser'>Enviar</button>
-      <button class='redes' id='btnLoginGoogle'> <img class='red-img' src="google.png" >ingresa con Google</button>
-      <button class='redes' id='btnLoginFacebook'> <img class='red-img' src="ll.png" >ingresa con Facebook</button>   
+    <form class= "formulario">
+      <p class="leter-form">Registro</p>
+      <p class="leter-form">Nombre:<input type='name' class='forms'id='name' placeholder='Ingresa tu Nombre'></p>
+      <p class="leter-form">Apellido:<input type="lastName" class="forms" id="lastName" placeholder="Ingresa tu Apellido"></p>
+      <p class="leter-form">Email:<input type='email' id='email'class='forms' placeholder='Ingresa email'></p>
+      <p class="leter-form">Contraseña:<input type='password'class='forms' id='password' placeholder='Ingresa contraseña'></p>
+      <button  class="btn-send" id="btnSignUpUser">Enviar</button>
+      <button class="redes" id="btnLoginGoogle"> <img class='red-img' src="google.png" >Ingresa con Google</button>
+      <button class="redes" id="btnLoginFacebook"> <img class='red-img' src="ll.png" >Ingresa con Facebook</button>   
       </form>`;
 
 
@@ -140,19 +140,19 @@ const loadAccessUser = ()=> {
   window.location.hash = '/ingreso';
   const accessUser = document.getElementById ('root');
   accessUser.innerHTML =  `
-  <div class="img-header">
+  <div class="time-service">
     <img src="./img/time-service1.jpg" style="width: 100%; opacity: 70%;">
   </div>
   <div class="logo">
     <a href="#muro" id="logo" alt=""> <img src="./img/logo-weservice.png" style="cursor: pointer;"> </a>
   </div>
   <div class='mostrar'>
-    <div class='containerEnter'>
-     <p class='leter'>Email: <input type='email' class='email2' id='email2' placeholder='Ingresa email'></p>
-      <p class='leter'>Contraseña: <input type='password' class='password2'  id='password2' placeholder='Ingresa contraseña'></p>
+    <div class="containerEnter">
+     <p class="leter">Email: <input type='email' class="email2" id="email2" placeholder="Ingresa email"></p>
+     <p class="leter">Contraseña: <input type='password' class="password2"  id="password2" placeholder="Ingresa contraseña"></p>
    </div>
   <div >
-  <button class='btnes' id='btnSignInUser'>Ingresar</button>`;
+  <button class="btnes" id="btnSignInUser">Ingresar</button>`;
   
 
 
@@ -226,7 +226,7 @@ const loadWallPublications = ()=> {
         <div class="fondo-avatar">
             <img class="imagen-tamaño" src="./img/user.png" alt="avatar">
         </div>
-        <textarea  class="textarea" name="post" id="post"placeholder="¡Publica tus novedades!"></textarea>
+        <textarea  class="textarea" name="post" id="post" placeholder="¡Publica tus novedades!"></textarea>
       </div>
       <div class="imagen-post">
           <button class="botones-post" id="publicar">Publicar</button>
@@ -254,10 +254,9 @@ btnCloseSession.addEventListener ('click', () => {
   closeSession();
 });
 
-
- 
-
-};
+enterPost();
+sendingPost();
+}
 
 // MANEJANDO LAS RUTAS
 window.addEventListener('hashchange', () => {
@@ -272,8 +271,96 @@ window.addEventListener('hashchange', () => {
     loadWallPublications();
   }
 });
-  
-
-  
 
   window.addEventListener('load',  loadLanding ());
+
+
+  
+const contentMessage = document.getElementById('messagePost');
+
+const enterPost = ()=> {
+  const textAreaPost = document.createElement('textarea');
+  textAreaPost.id = 'textPost'
+  const btnPublicar = document.createElement('btnPublicar');
+  btnPublicar.innerHTML = 'Publicar'
+  btnPublicar.addEventListener('click', () =>{
+    const textToPosted = textAreaPost.value;
+    sendingPost(textToPosted);
+    getingPost(textToPosted);
+  })
+  contentMessage.appendChild(textAreaPost);
+  contentMessage.appendChild(btnPublicar);
+}
+
+
+  //Funcion para guardar post en firebase
+  export const sendingPost = (textPosted) =>{
+  const textToPosted = textPosted;
+  console.log('esta guardando' + textToPosted + 'to Firestore');
+  database.collection('post').add({
+        message: textToPosted,
+        timePost: new Date()
+        
+      })
+      .then(docRef => {
+        console.log("Status Saved");
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(error => {
+        console.error("Error adding document: ", error);
+      })
+    }
+
+
+  //Funcion para traer post
+
+  
+  const getingPost = (textPosted) => {
+    const textToPosted = textPosted;
+    console.log('esta guardando' + textToPosted + 'to Firestore');
+
+    const collectionPost = database.collection('post')
+    const collectionPostForTime = collectionPost.orderBy("timePost","desc")
+    collectionPostForTime.onSnapshot((querySnapshot) =>{
+      contentMessage.innerHTML = '';
+      querySnapshot.forEach((doc) =>{
+        const divPost = document.createElement('div');
+        divPost.id = `divPost-${doc.id}`;
+        contentMessage.appendChild(divPost);
+        console.log(doc.id, "=" , doc.data());
+        divPost.innerHTML +=
+        `<p id="postMessage">${doc.data().message}</p>
+        `
+        const btnLike = document.createElement('button');
+        btnLike.innerHTML = 'Me gusta';
+        btnLike.addEventListener('click', () => {
+          giveLike();
+        })
+
+        const btnDeletePost = document.createElement('button');
+        btnDeletePost.innerHTML = 'Eliminar';
+        btnDeletePost.addEventListener('click', () => {
+          deletePost(doc.id);
+        }) 
+        const btnEditPost = document.createElement('button');
+        btnEditPost.innerHTML = 'Editar';
+        btnEditPost.addEventListener('click', () => {
+          editPost(doc.id, "AQUI VA EL INPUT DONDE SE ESTA IMPRIMIENDO EL POST");
+
+
+        contentMessage.appendChild(btnDeletePost);
+        contentMessage.appendChild(btnLike);
+        contentMessage.appendChild(btnEditPost);
+      })  
+    })
+  })
+
+//ELIMINAR POST
+
+function deletePost(id){
+  database.collection('post').doc(id).delete().then(function() {
+    console.log("Document successfully deleted!");
+}).catch(function(error) {
+    console.error("Error removing document: ", error);
+});
+}};

@@ -1,5 +1,4 @@
-let database = firebase.firestore();
- 
+
  export function register(name, lastName, email, password){ //PARA REGISTRAR
     firebase.auth().createUserWithEmailAndPassword(email,password)  
     .then(function(){
