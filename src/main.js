@@ -1,10 +1,9 @@
-
 import { templateLanding, templateRegisterUser, templateAccessUser, templateWallPublications } from '../iu/vistas.js';
 
 window.addEventListener('load', templateLanding());
 
 //MANEJANDO LAS RUTAS
-window.addEventListener('hashchange', () => {
+window.addEventListener('hashchange',function(){
 
   if(window.location.hash === '#/inicio'){ 
     templateLanding();

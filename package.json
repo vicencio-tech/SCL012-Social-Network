@@ -10,9 +10,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "htmlhint": "htmlhint src/* .html ",
-    "eslint": "eslint --ext .js src/ test/",
-    "stylelint": "stylelint --aei src/**/*.css",
+    "htmlhint": "htmlhint .html ",
+    "eslint": "",
+    "stylelint": "",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
     "start": "serve src/"
@@ -31,7 +31,8 @@
     "regenerator-runtime": "^0.13.1",
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
-    "stylelint-config-recommended": "^2.2.0"
+    "stylelint-config-recommended": "^2.2.0",
+    "firebase-mock": "^2.2.10"
   },
   "dependencies": {
     "firebase": "^7.7.0"
