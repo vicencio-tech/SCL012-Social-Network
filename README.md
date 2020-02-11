@@ -48,6 +48,7 @@ Posicionar a nuestro sitio web como una de las principales redes sociales para p
 
 ### Investigación
 
+
 ### Historias de usuario
 La planificación se realizó en utilizando la herarmienta "issues" de GitHub, ahí también se redactaron las historias de usuario:
 
@@ -70,7 +71,7 @@ a) Prototipos de baja fidelidad (wireframes)
 - **Sketch a mano alzada:**
 Luego de decidir finalmente la temática y el objetivo de nuestra red social, comenzamos a concretar en papel la idea de diseño:
 
-![bajaFidelidad](src/img/)
+![bajaFidelidad](src/img/sketch.jpg)
 
 
 a) Prototipos de alta fidelidad (mockup)
